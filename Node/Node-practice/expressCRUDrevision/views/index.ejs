@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Static Array Records</h1>
+
+    <form action="/add" method="post">
+        <input type="text" name="record" required>
+        <button type="submit">Add</button>
+    </form>
+
+    <ul>
+       <% records.forEach((record ,index)=>{ %>
+            <li>
+                <%= record %>
+
+                <form action="/edit/<%= index %>" method="post">
+                    <button type="submit">Edit</button>
+                </form>
+
+                <form action="/delete/<%= index %>" method="get">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+       <% }) %>
+    </ul>
+</body>
+</html>

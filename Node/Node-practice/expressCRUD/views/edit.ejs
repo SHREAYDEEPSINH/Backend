@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    
+        body {
+            background-color: teal;
+            color: khaki;
+        }
+    
+        /* .container {
+            width: 90%;
+            margin: 0 auto;
+    
+        }
+        .inner {
+            width: 100%;
+            margin: 0;
+            text-align: center;
+            margin: 50px 0px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="inner">
+            <h1>Edit Records</h1>
+
+            <form action="/update/<%= index%>" method="post">
+
+                <label for="record">Record : </label>
+                <input type="text" name="record" id="record" value="<%= record %>" required>
+                <button type="submit">update</button>
+            </form>
+
+            <a href="/">Cancle</a>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: teal;
+            color: khaki;
+        }
+
+        .container {
+            width: 90%;
+            margin: 0 auto;
+
+        }
+
+        .inner {
+            width: 100%;
+            margin: 0;
+            text-align: center;
+            margin: 50px 0px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        form {
+            display: flex;
+            justify-content: center;
+        }
+
+        input {
+            width: 50%;
+            height: 60px;
+            font-size: 30px;
+            padding-left: 20px;
+            border-radius: 30px;
+            margin-right: 10px;
+            background-color: beige;
+            border: none;
+        }
+
+        button {
+            font-size: 30px;
+            padding: 10px;
+            border-radius: 20px;
+            background-color: beige;
+            border: none;
+
+        }
+
+        .edit , .delete{
+            font-size: 15px;
+            margin: 5px;
+            background-color: rgb(230, 98, 125);
+
+        }
+        
+        ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        li {
+            font-size: 30px;
+            width: 50%;
+            margin: auto;
+            display: flex;
+            padding-left: 20px;
+            justify-content: space-between;
+            align-items: center;
+            border: 2px solid khaki;
+            border-top: none;
+            border-right: none ;
+            border-radius: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="inner">
+            <h1>Static Array Records</h1>
+            <form action="/add" method="post">
+                <input type="text" name="record" placeholder="Add here" required>
+                <button type="submit">Add</button>
+            </form>
+
+            <ul>
+                <% records.forEach((record,index)=>{ %>
+                    <li>
+                        <%= record %>
+                            <div>
+                                <form action="/edit/<%= index %>" method="post" style="display: inline;">
+                                    <button type="submit" class="edit">Edit</button>
+                                </form>
+                                <form action="/delete/<%= index %>" method="get" style="display: inline;">
+                                    <button type="submit" class="delete">Delete</button>
+                                </form>
+                            </div>
+                    </li>
+                    <% }) %>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
