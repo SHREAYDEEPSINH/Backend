@@ -59,5 +59,5 @@ app.get("/delete/:index", (req, res) => {
 // Server linten 
 
 app.listen(PORT, () => {
-    console.log("server started");
+    console.log("server started" , PORT);
 })
