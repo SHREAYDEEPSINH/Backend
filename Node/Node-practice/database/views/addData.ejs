@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="/insertAddData" method="post">
+      <table border="">
+        <tr>
+          <td>Name:</td>
+          <td>
+            <input type="text" placeholder="enter your name" name="userName" />
+          </td>
+        </tr>
+        <tr>
+          <td>Password:</td>
+          <td>
+            <input
+              type="password"
+              placeholder="enter your password"
+              name="password"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Gender</td>
+          <td>
+            <input type="radio" name="gender" value="male" />male
+            <input type="radio" name="gender" value="female" />female
+          </td>
+        </tr>
+        <tr>
+          <td>hobby</td>
+          <td>
+            <input type="checkbox" value="reading" name="hobby" /> Reading
+            <input type="checkbox" value="coding" name="hobby" /> coding
+            <input type="checkbox" value="cycling" name="hobby" /> cycling
+          </td>
+        </tr>
+        <tr>
+          <td>city</td>
+          <td>
+            <select name="city" id="">
+              <option value="">Select city</option>
+              <option value="rajkot">rajkot</option>
+              <option value="surat">surat</option>
+              <option value="delhi">delhi</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>description</td>
+          <td><textarea name="description"></textarea></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><button type="submit">add Data</button></td>
+        </tr>
+      </table>
+    </form>
+
+    <table border="">
+      <tr>
+        <td>name</td>
+        <td>password</td>
+        <td>gender</td>
+        <td>hobby</td>
+        <td>city</td>
+        <td>description</td>
+        <td>action</td>
+      </tr>
+
+      <% userData.map((data)=>{ %>
+      <tr>
+        <td><%= data.userName %></td>
+        <td><%= data.password %></td>
+        <td><%= data.gender %></td>
+        <td><%= data.hobby %></td>
+        <td><%= data.city %></td>
+        <td><%= data.description %></td>
+
+        <td>
+          <!-- params -->
+          <a href="/deleteData/<%= data.id %> "><button>delete</button></a>
+          <!-- <a href="/deleteData/?id=<%= data.id %> "><button>delete</button></a> -->
+          <a href="/update/<%= data.id %> "><button>update</button></a>
+        </td>
+      </tr>
+      <% }) %>
+    </table>
+  </body>
+</html>
