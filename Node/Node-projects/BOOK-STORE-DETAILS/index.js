@@ -46,7 +46,7 @@ app.get("/editData/:id" , async (req,res)=>{
     let storeData = await userModel.findById(req.params.id);
     console.log(storeData);
 
-    res.render("editData" ,{storeData});
+    res.render("editData" , {storeData});
 })
 
 

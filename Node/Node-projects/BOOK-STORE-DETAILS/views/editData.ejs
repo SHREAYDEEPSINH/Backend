@@ -12,8 +12,6 @@
             background-color: #f9f9f9;
             color: #333;
         }
-
-
         table {
             width: 100%;
             border-collapse: collapse;
@@ -71,18 +69,17 @@
         <table>
             <tr>
                 <td><label for="">Book Name :</label></td>
-                <td> <input type="text" placeholder="Enter Book Name " name="bookname"></td>
+                <td> <input type="text" placeholder="Enter Book Name" value="<%= storeData.bookname %>" name="bookname"></td>
             </tr>
             <tr>
                 <td> <label for="">Price :</label></td>
-                <td><input type="text" placeholder="Enter Book Price " name="price"></td>
+                <td><input type="text" placeholder="Enter Book Price" value="<%= storeData.price %>"  name="price"></td>
             </tr>
             <tr>
                 <td><label for="">Section : </label></td>
                 <td>
-
-                    <input type="radio" name="section" value="A" />A
-                    <input type="radio" name="section" value="B" />B
+                    <input type="radio" name="section" value="A" <%= storeData.section.includes("A") ? "checked" : "" %> />A
+                    <input type="radio" name="section" value="B" <%= storeData.section.includes("B") ? "checked" : "" %>/>B
                 </td>
             </tr>
             <tr>
@@ -90,11 +87,11 @@
                 <td>
                     <select name="Category" id="">
                         <option value="">Select Category</option>
-                        <option value="Science fiction">Science fiction</option>
-                        <option value="Adventure fiction">Adventure fiction</option>
-                        <option value="Autobiography">Autobiography</option>
-                        <option value="Mystery">Mystery</option>
-                        <option value="Thriller">Thriller</option>
+                        <option value="Science fiction"  <%= storeData.Category === "Science fiction" ? "selected" : "" %>>Science fiction</option>
+                        <option value="Adventure fiction"<%= storeData.Category === "Adventure fiction" ? "selected" : "" %>>Adventure fiction</option>
+                        <option value="Autobiography"    <%= storeData.Category === "Autobiography" ? "selected" : "" %>>Autobiography</option>
+                        <option value="Mystery"  <%= storeData.Category === "Mystery" ? "selected" : "" %>>Mystery</option>
+                        <option value="Thriller" <%= storeData.Category === "Thriller" ? "selected" : "" %>>Thriller</option>
                     </select>
                 </td>
             </tr>
@@ -103,9 +100,6 @@
                 <td><button type="submit">Update Data</button></td>
             </tr>
         </table>
-
-
     </form>
 </body>
-
 </html>
