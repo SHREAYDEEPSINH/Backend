@@ -7,7 +7,7 @@
     <title>Document</title>
   </head>
   <body>
-    <form action="/insertAddData" method="post">
+    <form action="/insertAddData" method="post" enctype="multipart/form-data">
       <table border="">
         <tr>
           <td>Name:</td>
@@ -56,6 +56,10 @@
           <td><textarea name="description"></textarea></td>
         </tr>
         <tr>
+          <td>FileUpload</td>
+          <td><input type="file" name="image"></td>
+        </tr>
+        <tr>
           <td></td>
           <td><button type="submit">add Data</button></td>
         </tr>
@@ -70,6 +74,7 @@
         <td>hobby</td>
         <td>city</td>
         <td>description</td>
+        <td>image</td>
         <td>action</td>
       </tr>
 
@@ -81,6 +86,7 @@
         <td><%= data.hobby %></td>
         <td><%= data.city %></td>
         <td><%= data.description %></td>
+        <td><img width="300px" src="<%= data.image %>" alt=""></td>
 
         <td>
           <!-- params -->

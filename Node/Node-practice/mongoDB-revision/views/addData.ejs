@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="/insertData" method="post">
+
+        <table border="" cellpadding="6">
+            <tr>
+                <td><label for="">Name :</label></td>
+                <td><input type="text" placeholder="Enter Name" name="name"></td>
+            </tr>
+            <tr>
+                <td><label for="">Email :</label></td>
+                <td><input type="email" placeholder="Enter Email" name="email"></td>
+            </tr>
+            <tr>
+                <td><label for="">Password :</label></td>
+                <td><input type="password" placeholder="Enter Password" name="password"></td>
+            </tr>
+        </table>
+
+        <button type="submit">Add Data</button>
+
+    </form>
+
+    <table border="">
+        <tr>
+            <th>name</th>
+            <th>email</th>
+            <th>password</th>
+        </tr>
+
+        <% userData.map((data)=>{ %>
+
+
+            <tr>
+                <td><%= data.name %></td>
+                <td><%= data.email %></td>
+                <td><%= data.password %></td>
+            </tr>
+            <% }) %>
+    </table>
+</body>
+
+</html>
