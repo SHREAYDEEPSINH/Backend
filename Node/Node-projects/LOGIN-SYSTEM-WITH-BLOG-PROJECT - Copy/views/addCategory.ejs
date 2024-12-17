@@ -1,0 +1,85 @@
+<%- include("header") %>
+
+<section class="signin-section">
+    <div class="container-fluid">
+      <!-- ========== title-wrapper start ========== -->
+      <div class="title-wrapper pt-30">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <div class="title">
+              <h2>Add Category</h2>
+            </div>
+          </div>
+          <!-- end col -->
+          <!-- <div class="col-md-6">
+            <div class="breadcrumb-wrapper">
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item">
+                    <a href="#0">Dashboard</a>
+                  </li>
+                  <li class="breadcrumb-item"><a href="#0">Auth</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">
+                    Otp
+                  </li>
+                </ol>
+              </nav>
+            </div> -->
+          </div>
+          <!-- end col -->
+        </div>
+        <!-- end row -->
+      </div>
+      <!-- ========== title-wrapper end ========== -->
+
+      <div class="row g-0 auth-row">
+        <!-- <div class="col-lg-6">
+          <div class="auth-cover-wrapper bg-primary-100">
+            <div class="auth-cover">
+             
+              <div class="cover-image">
+                <img src="assets/images/auth/signin-image.svg" alt="" />
+              </div>
+              <div class="shape-image">
+                <img src="assets/images/auth/shape.svg" alt="" />
+              </div>
+            </div>
+          </div>
+        </div> -->
+        <!-- end col -->
+        <div class="col-lg-6">
+          <div class="p-5">
+            <div class="form-wrapper">
+              
+              <form action="/insertCategory" method="post">
+                <div class="row">
+                  <div class="col-12">
+                    <div class="input-style-1">
+                      <label>Category Name :</label>
+                      <input type="text" placeholder="Enter Category Name" name="categoryName"/>
+                    </div>
+                  </div>
+                  <!-- end col -->
+                 
+                  <!-- end col -->
+                  <div class="col-3">
+                    <div class="button-group d-flex justify-content-center flex-wrap">
+                      <button type="submit" class="main-btn primary-btn btn-hover w-100 text-center">
+                        Add Category
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <!-- end row -->
+              </form>
+              
+            </div>
+          </div>
+        </div>
+        <!-- end col -->
+      </div>
+      <!-- end row -->
+    </div>
+  </section>
+
+<%- include("footer") %>

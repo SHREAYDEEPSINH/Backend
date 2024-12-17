@@ -1,0 +1,75 @@
+<%- include("header") %>
+
+    <section class="signin-section">
+        <div class="container-fluid">
+            <!-- ========== title-wrapper start ========== -->
+            <div class="title-wrapper pt-30">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <div class="title">
+                            <h2>Add SubProduct</h2>
+                        </div>
+                    </div>
+                    <!-- end col -->
+
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- ========== title-wrapper end ========== -->
+
+        <div class="row g-0 auth-row">
+
+            <!-- end col -->
+            <div class="col-lg-6">
+                <div class="p-5">
+                    <div class="form-wrapper">
+
+                        <form action="/insertSubProduct" method="post">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="input-style-1">
+                                        <label>SubProduct Name :</label>
+                                        <input type="text" placeholder="Enter SubProduct Name"
+                                            name="subProductName" />
+                                    </div>
+                                </div>
+                                <!-- end col -->
+
+                                <div class="col-12">
+                                    <div class="input-style-1">
+                                        <label for="productId">Select Product :</label>
+                                        <select name="productId" id="">
+                                            <option value="">select any option</option>
+                                            <% product.map((data)=>{ %>
+                                                <option value="<%= data.id  %>">
+                                                    <%= data.productName %>
+                                                </option>
+                                                <% }) %>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- end col -->
+                                <div class="col-4">
+                                    <div class="button-group d-flex justify-content-center flex-wrap">
+                                        <button type="submit" class="main-btn primary-btn btn-hover w-100 text-center">
+                                            Add SubProduct
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end row -->
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+            <!-- end col -->
+        </div>
+        <!-- end row -->
+        </div>
+    </section>
+
+    <%- include("footer") %>

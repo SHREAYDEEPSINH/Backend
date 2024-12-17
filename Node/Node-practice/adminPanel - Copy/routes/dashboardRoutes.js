@@ -1,6 +1,8 @@
 const express = require("express");
 const UserModel = require("../model/UserModel");
 const passport = require("../config/passport-local");
+const CategoryModel = require("../model/CategoryModel");
+const SubCategoryModel = require("../model/SubCategory");
 const dashboardRouter = express.Router()
 
 
@@ -78,5 +80,47 @@ dashboardRouter.post("/logIn", passport.authenticate("local", { failureRedirect:
 })
 
 
+dashboardRouter.get("/addCategory", (req, res) => {
+    res.render("addCategory");
+})
+
+
+dashboardRouter.post("/insertCategory", async (req, res) => {
+    try {
+        console.log(req.body);
+        await CategoryModel.create(req.body);
+        console.log("Category created");
+        res.redirect("/dashboard");
+      } catch (err) {
+        console.log(err);
+      }
+})
+
+dashboardRouter.get("/viewCategory", async (req, res) => {
+    try {
+      const categories = await CategoryModel.find({});
+      res.render("viewCategory", { categories });
+    } catch (err) {
+      console.log(err);
+    }
+  });
+  
+  dashboardRouter.get("/addSubCategory", async (req, res) => {
+    try {
+      const categories = await CategoryModel.find({});
+      res.render("addSubCategory", { categories: categories });
+    } catch (err) {
+      console.log(err);
+    }
+  });
+  
+  dashboardRouter.post("/insertSubCategory", async (req, res) => {
+    try {
+      await SubCategoryModel.create(req.body);
+      console.log("Subcategory created");
+    } catch (err) {
+      console.log(err);
+    }
+  });
 
 module.exports = dashboardRouter;
