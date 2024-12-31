@@ -5,7 +5,6 @@ const path = require("path")
 const fs = require("fs");
 
 
-
 userRoutes.get("/", async (req, res) => {
     try {
         const userData = await UserModel.find({})
@@ -29,7 +28,6 @@ userRoutes.post("/insertData", UserModel.imageUpload, async (req, res) => {
     console.log(req.file)
 
     try {
-
         if (req.file) {
             req.body.image = UserModel.imagePath + "/" + req.file.filename;
         }
@@ -58,7 +56,6 @@ userRoutes.get("/deleteData/:id", async (req, res) => {
         console.log(err);
     }
 });
-
 
 
 userRoutes.get("/editData/:id", async (req, res) => {

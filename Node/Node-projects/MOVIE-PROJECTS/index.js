@@ -12,6 +12,9 @@ app.set("view engine", "ejs")
 app.use(express.urlencoded())
 app.use("/uploads" , express.static(path.join(__dirname , "uploads")) )
 
+
+app.use("/" , userRoutes);
+
 // app.get("/", async (req, res) => {
 //     try {
 //         const userData = await UserModel.find({})
@@ -30,10 +33,6 @@ app.use("/uploads" , express.static(path.join(__dirname , "uploads")) )
 //         console.log(error)
 //     }
 // })
-
-app.use("/" , userRoutes);
-
-
 
 // app.get("/deleteData/:id", async (req, res) => {
 //     // console.log(req.params.id);

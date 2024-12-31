@@ -36,11 +36,9 @@ dashboardRouter.post("/insertData", UserModel.imageUpload, async (req, res) => {
 })
 
 
-dashboardRouter.post('/login',
-    passport.authenticate('local', { failureRedirect: '/' }),
-    function (req, res) {
-        res.redirect('/dashboard');
-    });
+dashboardRouter.post('/login', passport.authenticate('local', { failureRedirect: '/' }), function (req, res) {
+    res.redirect('/dashboard');
+});
 
 
 dashboardRouter.get("/tables", passport.isAuth, async (req, res) => {
@@ -76,7 +74,7 @@ dashboardRouter.post("/getChangePassword", async (req, res) => {
 
 
 dashboardRouter.get("/logout", (req, res) => {
-    req.session.destroy(function (err) {});
+    req.session.destroy(function (err) { });
     res.redirect("/");
 });
 
@@ -124,11 +122,11 @@ dashboardRouter.get("/otpPage", (req, res) => {
     res.render("otp");
 });
 
-dashboardRouter.get("/forgotPasswordPage" , (req,res)=>{
+dashboardRouter.get("/forgotPasswordPage", (req, res) => {
     res.render("forgotPassword")
 })
 
-dashboardRouter.post("/getNewPasswore" , async (req, res) =>{
+dashboardRouter.post("/getNewPasswore", async (req, res) => {
     console.log(req.body)
     const userData = await UserModel.findById(_id)
     console.log(userData)

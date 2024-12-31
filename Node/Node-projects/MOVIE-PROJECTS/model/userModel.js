@@ -32,7 +32,7 @@ const storage = multer.diskStorage({
     }
   })
   
-// const upload = // middelwar
+
 
 userSchema.statics.imageUpload =  multer({ storage: storage }).single("image")
 userSchema.statics.imagePath = imagePath;

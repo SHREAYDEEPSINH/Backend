@@ -80,7 +80,7 @@ dashboardRouter.get("/tables", async (req, res) => {
 dashboardRouter.get("/logOut" ,(req , res)=>{
     res.clearCookie("auth")
     res.redirect("/")
- })
+})
  
 
 module.exports = dashboardRouter
