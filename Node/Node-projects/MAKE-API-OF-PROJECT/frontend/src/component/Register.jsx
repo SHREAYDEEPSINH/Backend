@@ -26,10 +26,7 @@ function Register() {
             .post("http://localhost:9030/user/register", register)
             .then((res) => {
                 setSuccess("Registration successful!");
-                setError("");
-                setTimeout(() => {
-                    navigate("/login"); // Redirect to login page after success
-                }, 1500);
+                navigate("/login"); // Redirect to login page after success
             })
             .catch((err) => {
                 setError(err.response?.data?.message || "Registration failed!");

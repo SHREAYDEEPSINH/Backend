@@ -3,8 +3,7 @@ const multer = require("multer");
 const { type } = require("os");
 const path = require("path");
 
-const imagePath = "uploads"
-
+const imagePath = "uploads";
 
 const userSchema = mongoose.Schema({
     movieName: {
