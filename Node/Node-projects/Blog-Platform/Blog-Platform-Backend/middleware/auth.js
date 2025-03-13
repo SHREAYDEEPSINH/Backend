@@ -18,9 +18,9 @@ const protect = (req, res, next) => {
 
 const authorize = (...roles) => (req, res, next) => {
     if (!req.user) {
-        return res.status(401).json({ message: "Not authenticated" }); // If req.user is missing, return error
+        return res.status(401).json({ message: "Not authenticated" }); 
     }
-    if (!roles.includes(req.role.user)) {
+    if (!roles.includes(req.user.role)) {
         return res.status(403).json({ message: "access denied" })
     }
     next()

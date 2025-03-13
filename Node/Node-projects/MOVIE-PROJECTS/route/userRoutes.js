@@ -47,7 +47,6 @@ userRoutes.get("/deleteData/:id", async (req, res) => {
         console.log(getDataUser);
         if (getDataUser) {
             fs.unlinkSync(path.join(__dirname, "..", getDataUser.image));
-
         }
         await UserModel.findByIdAndDelete(req.params.id);
         console.log("Data deleted successfully");
